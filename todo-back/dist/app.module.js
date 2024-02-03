@@ -12,6 +12,7 @@ const common_1 = require("@nestjs/common");
 const graphql_1 = require("@nestjs/graphql");
 const path_1 = require("path");
 const task_module_1 = require("./task/task.module");
+const prisma_module_1 = require("./prisma/prisma.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -24,6 +25,7 @@ exports.AppModule = AppModule = __decorate([
                 autoSchemaFile: (0, path_1.join)(process.cwd(), 'src/schema.gql'),
             }),
             task_module_1.TaskModule,
+            prisma_module_1.PrismaModule,
         ],
         controllers: [],
         providers: [],
