@@ -30,6 +30,10 @@ __decorate([
     (0, graphql_1.Field)(() => String, { nullable: true }),
     __metadata("design:type", String)
 ], CreateTaskInput.prototype, "description", void 0);
+__decorate([
+    (0, graphql_1.Field)(() => graphql_1.Int, {}),
+    __metadata("design:type", Number)
+], CreateTaskInput.prototype, "userId", void 0);
 exports.CreateTaskInput = CreateTaskInput = __decorate([
     (0, graphql_1.InputType)()
 ], CreateTaskInput);

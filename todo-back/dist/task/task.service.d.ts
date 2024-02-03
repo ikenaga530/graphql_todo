@@ -5,7 +5,7 @@ import { UpdateTaskInput } from './dto/updateTask.input';
 export declare class TaskService {
     private readonly prismaService;
     constructor(prismaService: PrismaService);
-    getTasks(): Promise<Task[]>;
+    getTasks(userId: number): Promise<Task[]>;
     createTask(createTaskInput: CreateTaskInput): Promise<Task>;
     updateTask(updateTaskInput: UpdateTaskInput): Promise<Task>;
     deleteTask(id: number): Promise<Task>;

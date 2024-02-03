@@ -22,8 +22,8 @@ let TaskResolver = class TaskResolver {
     constructor(taskService) {
         this.taskService = taskService;
     }
-    async getTasks() {
-        return await this.taskService.getTasks();
+    async getTasks(userId) {
+        return await this.taskService.getTasks(userId);
     }
     async createTask(createTaskInput) {
         return await this.taskService.createTask(createTaskInput);
@@ -38,8 +38,9 @@ let TaskResolver = class TaskResolver {
 exports.TaskResolver = TaskResolver;
 __decorate([
     (0, graphql_1.Query)(() => [task_model_1.Task], { nullable: 'items' }),
+    __param(0, (0, graphql_1.Args)('userId', { type: () => graphql_1.Int })),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", Promise)
 ], TaskResolver.prototype, "getTasks", null);
 __decorate([

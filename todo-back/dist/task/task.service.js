@@ -16,16 +16,19 @@ let TaskService = class TaskService {
     constructor(prismaService) {
         this.prismaService = prismaService;
     }
-    async getTasks() {
-        return await this.prismaService.task.findMany();
+    async getTasks(userId) {
+        return await this.prismaService.task.findMany({
+            where: { userId },
+        });
     }
     async createTask(createTaskInput) {
-        const { name, dueDate, description } = createTaskInput;
+        const { name, dueDate, description, userId } = createTaskInput;
         return await this.prismaService.task.create({
             data: {
                 name,
                 dueDate,
                 description,
+                userId,
             },
         });
     }

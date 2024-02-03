@@ -5,7 +5,7 @@ import { UpdateTaskInput } from './dto/updateTask.input';
 export declare class TaskResolver {
     private readonly taskService;
     constructor(taskService: TaskService);
-    getTasks(): Promise<Task[]>;
+    getTasks(userId: number): Promise<Task[]>;
     createTask(createTaskInput: CreateTaskInput): Promise<Task>;
     updateTask(updateTaskInput: UpdateTaskInput): Promise<Task>;
     deleteTask(id: number): Promise<Task>;

@@ -13,6 +13,7 @@ const graphql_1 = require("@nestjs/graphql");
 const path_1 = require("path");
 const task_module_1 = require("./task/task.module");
 const prisma_module_1 = require("./prisma/prisma.module");
+const user_module_1 = require("./user/user.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -26,6 +27,7 @@ exports.AppModule = AppModule = __decorate([
             }),
             task_module_1.TaskModule,
             prisma_module_1.PrismaModule,
+            user_module_1.UserModule,
         ],
         controllers: [],
         providers: [],
