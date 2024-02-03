@@ -22,7 +22,7 @@ var Status;
 });
 let Task = class Task {
     static _GRAPHQL_METADATA_FACTORY() {
-        return { name: { type: () => String }, dueDate: { type: () => String } };
+        return { name: { type: () => String }, dueDate: { type: () => String }, createdAt: { type: () => Date }, updatedAt: { type: () => Date } };
     }
 };
 exports.Task = Task;

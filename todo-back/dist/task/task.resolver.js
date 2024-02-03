@@ -21,11 +21,11 @@ let TaskResolver = class TaskResolver {
     constructor(taskService) {
         this.taskService = taskService;
     }
-    getTasks() {
-        return this.taskService.getTasks();
+    async getTasks() {
+        return await this.taskService.getTasks();
     }
-    createTask(createTaskInput) {
-        return this.taskService.createTask(createTaskInput);
+    async createTask(createTaskInput) {
+        return await this.taskService.createTask(createTaskInput);
     }
 };
 exports.TaskResolver = TaskResolver;
@@ -33,14 +33,14 @@ __decorate([
     (0, graphql_1.Query)(() => [task_model_1.Task], { nullable: 'items' }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Array)
+    __metadata("design:returntype", Promise)
 ], TaskResolver.prototype, "getTasks", null);
 __decorate([
     (0, graphql_1.Mutation)(() => task_model_1.Task),
     __param(0, (0, graphql_1.Args)('createTaskInput')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [createTask_input_1.CreateTaskInput]),
-    __metadata("design:returntype", task_model_1.Task)
+    __metadata("design:returntype", Promise)
 ], TaskResolver.prototype, "createTask", null);
 exports.TaskResolver = TaskResolver = __decorate([
     (0, graphql_1.Resolver)(),

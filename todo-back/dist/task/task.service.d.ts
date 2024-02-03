@@ -1,7 +1,9 @@
-import { Task } from './models/task.model';
 import { CreateTaskInput } from './dto/createTask.input';
+import { PrismaService } from 'src/prisma/prisma.service';
+import { Task } from '@prisma/client';
 export declare class TaskService {
-    tasks: Task[];
-    getTasks(): Task[];
-    createTask(createTaskInput: CreateTaskInput): Task;
+    private readonly prismaService;
+    constructor(prismaService: PrismaService);
+    getTasks(): Promise<Task[]>;
+    createTask(createTaskInput: CreateTaskInput): Promise<Task>;
 }

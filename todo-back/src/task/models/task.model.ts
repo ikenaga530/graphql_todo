@@ -7,7 +7,7 @@ export enum Status {
 }
 
 registerEnumType(Status, {
-  name: 'Status',
+  name: 'Status', // GraphQLスキーマでのEnum名
 });
 
 @ObjectType()
@@ -22,4 +22,6 @@ export class Task {
 
   @Field({ nullable: true })
   description?: string;
+  createdAt: Date;
+  updatedAt: Date;
 }

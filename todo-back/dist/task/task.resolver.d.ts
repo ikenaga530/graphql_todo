@@ -1,9 +1,9 @@
 import { TaskService } from './task.service';
-import { Task } from './models/task.model';
 import { CreateTaskInput } from './dto/createTask.input';
+import { Task } from '@prisma/client';
 export declare class TaskResolver {
     private readonly taskService;
     constructor(taskService: TaskService);
-    getTasks(): Task[];
-    createTask(createTaskInput: CreateTaskInput): Task;
+    getTasks(): Promise<Task[]>;
+    createTask(createTaskInput: CreateTaskInput): Promise<Task>;
 }

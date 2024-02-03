@@ -9,4 +9,6 @@ export declare class Task {
     dueDate: string;
     status: Status;
     description?: string;
+    createdAt: Date;
+    updatedAt: Date;
 }

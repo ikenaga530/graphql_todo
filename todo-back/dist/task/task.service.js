@@ -5,32 +5,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TaskService = void 0;
 const common_1 = require("@nestjs/common");
-const task_model_1 = require("./models/task.model");
-const task_model_2 = require("./models/task.model");
+const prisma_service_1 = require("../prisma/prisma.service");
 let TaskService = class TaskService {
-    constructor() {
-        this.tasks = [];
+    constructor(prismaService) {
+        this.prismaService = prismaService;
     }
-    getTasks() {
-        return this.tasks;
+    async getTasks() {
+        return await this.prismaService.task.findMany();
     }
-    createTask(createTaskInput) {
+    async createTask(createTaskInput) {
         const { name, dueDate, description } = createTaskInput;
-        const newTask = new task_model_1.Task();
-        newTask.id = this.tasks.length + 1;
-        newTask.name = name;
-        newTask.dueDate = dueDate;
-        newTask.description = description;
-        newTask.status = task_model_2.Status.PENDING;
-        this.tasks.push(newTask);
-        return newTask;
+        return await this.prismaService.task.create({
+            data: {
+                name,
+                dueDate,
+                description,
+            },
+        });
     }
 };
 exports.TaskService = TaskService;
 exports.TaskService = TaskService = __decorate([
-    (0, common_1.Injectable)()
+    (0, common_1.Injectable)(),
+    __metadata("design:paramtypes", [prisma_service_1.PrismaService])
 ], TaskService);
 //# sourceMappingURL=task.service.js.map

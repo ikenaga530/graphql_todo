@@ -10,12 +10,14 @@ exports.TaskModule = void 0;
 const common_1 = require("@nestjs/common");
 const task_resolver_1 = require("./task.resolver");
 const task_service_1 = require("./task.service");
+const prisma_module_1 = require("../prisma/prisma.module");
 let TaskModule = class TaskModule {
 };
 exports.TaskModule = TaskModule;
 exports.TaskModule = TaskModule = __decorate([
     (0, common_1.Module)({
-        providers: [task_resolver_1.TaskResolver, task_service_1.TaskService]
+        imports: [prisma_module_1.PrismaModule],
+        providers: [task_resolver_1.TaskResolver, task_service_1.TaskService],
     })
 ], TaskModule);
 //# sourceMappingURL=task.module.js.map
