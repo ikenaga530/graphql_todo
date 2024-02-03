@@ -7,7 +7,7 @@ export enum Status {
 }
 
 registerEnumType(Status, {
-  name: 'Status', // GraphQLスキーマでのEnum名
+  name: 'Status',
 });
 
 @ObjectType()

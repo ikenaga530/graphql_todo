@@ -29,6 +29,18 @@ let TaskService = class TaskService {
             },
         });
     }
+    async updateTask(updateTaskInput) {
+        const { id, name, dueDate, status, description } = updateTaskInput;
+        return await this.prismaService.task.update({
+            where: { id },
+            data: {
+                name,
+                dueDate,
+                status,
+                description,
+            },
+        });
+    }
 };
 exports.TaskService = TaskService;
 exports.TaskService = TaskService = __decorate([
