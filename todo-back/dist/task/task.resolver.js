@@ -8,17 +8,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TaskResolver = void 0;
 const graphql_1 = require("@nestjs/graphql");
 const task_service_1 = require("./task.service");
 const task_model_1 = require("./models/task.model");
+const createTask_input_1 = require("./dto/createTask.input");
 let TaskResolver = class TaskResolver {
     constructor(taskService) {
         this.taskService = taskService;
     }
     getTasks() {
         return this.taskService.getTasks();
+    }
+    createTask(createTaskInput) {
+        return this.taskService.createTask(createTaskInput);
     }
 };
 exports.TaskResolver = TaskResolver;
@@ -28,6 +35,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Array)
 ], TaskResolver.prototype, "getTasks", null);
+__decorate([
+    (0, graphql_1.Mutation)(() => task_model_1.Task),
+    __param(0, (0, graphql_1.Args)('createTaskInput')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [createTask_input_1.CreateTaskInput]),
+    __metadata("design:returntype", task_model_1.Task)
+], TaskResolver.prototype, "createTask", null);
 exports.TaskResolver = TaskResolver = __decorate([
     (0, graphql_1.Resolver)(),
     __metadata("design:paramtypes", [task_service_1.TaskService])

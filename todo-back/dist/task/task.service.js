@@ -15,13 +15,18 @@ let TaskService = class TaskService {
         this.tasks = [];
     }
     getTasks() {
-        const task1 = new task_model_1.Task();
-        task1.id = 1;
-        task1.name = 'task1';
-        task1.dueDate = '2024-02-03';
-        task1.status = task_model_2.Status.PENDING;
-        this.tasks.push(task1);
         return this.tasks;
+    }
+    createTask(createTaskInput) {
+        const { name, dueDate, description } = createTaskInput;
+        const newTask = new task_model_1.Task();
+        newTask.id = this.tasks.length + 1;
+        newTask.name = name;
+        newTask.dueDate = dueDate;
+        newTask.description = description;
+        newTask.status = task_model_2.Status.PENDING;
+        this.tasks.push(newTask);
+        return newTask;
     }
 };
 exports.TaskService = TaskService;

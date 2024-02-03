@@ -19,3 +19,13 @@ enum Status {
 type Query {
   getTasks: [Task]!
 }
+
+type Mutation {
+  createTask(createTaskInput: CreateTaskInput!): Task!
+}
+
+input CreateTaskInput {
+  description: String
+  name: String!
+  dueDate: String!
+}
