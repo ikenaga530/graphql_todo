@@ -14,6 +14,7 @@ const path_1 = require("path");
 const task_module_1 = require("./task/task.module");
 const prisma_module_1 = require("./prisma/prisma.module");
 const user_module_1 = require("./user/user.module");
+const auth_module_1 = require("./auth/auth.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -28,6 +29,7 @@ exports.AppModule = AppModule = __decorate([
             task_module_1.TaskModule,
             prisma_module_1.PrismaModule,
             user_module_1.UserModule,
+            auth_module_1.AuthModule,
         ],
         controllers: [],
         providers: [],

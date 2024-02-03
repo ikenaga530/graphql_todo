@@ -18,6 +18,8 @@ const task_service_1 = require("./task.service");
 const task_model_1 = require("./models/task.model");
 const createTask_input_1 = require("./dto/createTask.input");
 const updateTask_input_1 = require("./dto/updateTask.input");
+const common_1 = require("@nestjs/common");
+const jwt_auth_guard_1 = require("../auth/guards/jwt-auth.guard");
 let TaskResolver = class TaskResolver {
     constructor(taskService) {
         this.taskService = taskService;
@@ -38,6 +40,7 @@ let TaskResolver = class TaskResolver {
 exports.TaskResolver = TaskResolver;
 __decorate([
     (0, graphql_1.Query)(() => [task_model_1.Task], { nullable: 'items' }),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     __param(0, (0, graphql_1.Args)('userId', { type: () => graphql_1.Int })),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
@@ -45,6 +48,7 @@ __decorate([
 ], TaskResolver.prototype, "getTasks", null);
 __decorate([
     (0, graphql_1.Mutation)(() => task_model_1.Task),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     __param(0, (0, graphql_1.Args)('createTaskInput')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [createTask_input_1.CreateTaskInput]),
@@ -52,6 +56,7 @@ __decorate([
 ], TaskResolver.prototype, "createTask", null);
 __decorate([
     (0, graphql_1.Mutation)(() => task_model_1.Task),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     __param(0, (0, graphql_1.Args)('updateTaskInput')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [updateTask_input_1.UpdateTaskInput]),
@@ -59,6 +64,7 @@ __decorate([
 ], TaskResolver.prototype, "updateTask", null);
 __decorate([
     (0, graphql_1.Mutation)(() => task_model_1.Task),
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     __param(0, (0, graphql_1.Args)('id', { type: () => graphql_1.Int })),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
