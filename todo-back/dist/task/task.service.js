@@ -41,6 +41,11 @@ let TaskService = class TaskService {
             },
         });
     }
+    async deleteTask(id) {
+        return await this.prismaService.task.delete({
+            where: { id },
+        });
+    }
 };
 exports.TaskService = TaskService;
 exports.TaskService = TaskService = __decorate([

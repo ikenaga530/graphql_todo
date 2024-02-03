@@ -31,6 +31,9 @@ let TaskResolver = class TaskResolver {
     async updateTask(updateTaskInput) {
         return await this.taskService.updateTask(updateTaskInput);
     }
+    async deleteTask(id) {
+        return await this.taskService.deleteTask(id);
+    }
 };
 exports.TaskResolver = TaskResolver;
 __decorate([
@@ -53,6 +56,13 @@ __decorate([
     __metadata("design:paramtypes", [updateTask_input_1.UpdateTaskInput]),
     __metadata("design:returntype", Promise)
 ], TaskResolver.prototype, "updateTask", null);
+__decorate([
+    (0, graphql_1.Mutation)(() => task_model_1.Task),
+    __param(0, (0, graphql_1.Args)('id', { type: () => graphql_1.Int })),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], TaskResolver.prototype, "deleteTask", null);
 exports.TaskResolver = TaskResolver = __decorate([
     (0, graphql_1.Resolver)(),
     __metadata("design:paramtypes", [task_service_1.TaskService])

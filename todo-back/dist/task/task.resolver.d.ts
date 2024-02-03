@@ -8,4 +8,5 @@ export declare class TaskResolver {
     getTasks(): Promise<Task[]>;
     createTask(createTaskInput: CreateTaskInput): Promise<Task>;
     updateTask(updateTaskInput: UpdateTaskInput): Promise<Task>;
+    deleteTask(id: number): Promise<Task>;
 }
