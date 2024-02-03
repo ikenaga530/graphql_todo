@@ -1,0 +1,21 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Task {
+  id: Int!
+  status: Status!
+  description: String
+  name: String!
+  dueDate: String!
+}
+
+enum Status {
+  PENDING
+  IN_PROGRESS
+  DONE
+}
+
+type Query {
+  getTasks: [Task]!
+}
