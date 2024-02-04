@@ -35,7 +35,7 @@ export default function EditTask({
   const [description, setDescription] = useState(task.description);
   const [isInvalidName, setIsInvalidName] = useState(false);
   const [isInvalidDueDate, setIsInvalidDueDate] = useState(false);
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const [updateTask] = useMutation<{ updateTask: Task }>(UPDATE_TASK);
 
   const handleEditTask = async () => {
@@ -77,10 +77,9 @@ export default function EditTask({
         if (err.message === "Unauthorized") {
           localStorage.removeItem("token");
           alert("トークン有効期限切れ");
-          Navigate("/signin");
+          navigate("/signin");
           return;
         }
-
         alert("編集失敗");
       }
     }
