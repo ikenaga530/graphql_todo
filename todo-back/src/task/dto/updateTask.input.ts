@@ -8,8 +8,8 @@ export class UpdateTaskInput {
   id: number;
 
   @Field({ nullable: true })
-  @IsNotEmpty()
-  @IsOptional()
+  @IsNotEmpty() //空文字列は許可しない
+  @IsOptional() //未指定の場合はエラーにしない
   name?: string;
 
   @Field({ nullable: true })

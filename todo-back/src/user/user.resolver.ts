@@ -13,6 +13,7 @@ export class UserResolver {
   @Query(() => UserModel, { nullable: true })
   @UseGuards(JwtAuthGuard)
   async getUser(@Args() getUserArgs: GetUserArgs): Promise<User> {
+    //ArgsTypeの場合は@Argsに引数を指定しない
     return await this.userService.getUser(getUserArgs.email);
   }
 

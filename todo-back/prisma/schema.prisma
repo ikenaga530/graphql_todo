@@ -19,7 +19,7 @@ model Task{
   createdAt DateTime @default(now()) @db.Timestamp(0)
   updatedAt DateTime @updatedAt @db.Timestamp(0)
   userId Int
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade) //userIdとUserのidを関連付ける
 }
 
 model User{
